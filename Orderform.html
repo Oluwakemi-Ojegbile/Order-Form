@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Order Form</title>
+  	<link rel="stylesheet" href="Orderform.css">
+	
+</head>
+<body>
+
+<form id="main-body">
+
+    <h1>Available Services</h1>
+
+    <ul>
+        
+        <li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
+            
+            {{service.name}} <span>{{service.price | currency}}</span>
+        </li>
+    </ul>
+
+    <div class="sum">
+        
+        Sum: <span>{{sum() | currency}}</span>
+    </div>
+
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+<script type="text/javascript" src="Orderform.js"></script>
+</body>
+</html>
